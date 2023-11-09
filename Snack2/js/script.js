@@ -12,6 +12,13 @@ function newArray(teams) {
     return newTeam;
 }
 
+function rnd(teams) {
+    teams.forEach(team => {
+        team.puntiFatti = Math.floor(Math.random() * (20 - 1 + 1) ) + 1;
+        team.falliSubiti = Math.floor(Math.random() * (20 - 1 + 1) ) + 1;
+    });
+}
+
 
 // CODE
 const squadre = [
@@ -37,11 +44,20 @@ const squadre = [
     }
 ]
 
-squadre.forEach(squadra => {
-    squadra.puntiFatti = Math.floor(Math.random() * (20 - 1 + 1) ) + 1;
-    squadra.falliSubiti = Math.floor(Math.random() * (20 - 1 + 1) ) + 1;
-});
 
-const squadreEFalli = newArray(squadre);
-console.log(squadreEFalli)
+rnd(squadre);
+
+// const squadreEFalli = newArray(squadre); funzione con forEach che crea nuovo array 
+// console.log(squadreEFalli);
+
+const newTeamMap = squadre.map((squadra) => { // funzione (arrow) con map che crea nuovo array
+    const {nome, falliSubiti} = squadra;
+    return {
+        nome,
+        falliSubiti
+    };
+})
+console.log(newTeamMap)
+
+
 

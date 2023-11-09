@@ -19,15 +19,17 @@ const biciclette = [
 
 const [bicicletta1] = biciclette;
 pesoLeggero = bicicletta1.peso;
+nomeLeggero = bicicletta1.nome;
 
 biciclette.forEach((bici) => {
     const {peso} = bici;
-
+    const {nome} = bici;
     if (pesoLeggero > peso) {
         pesoLeggero = peso;
-        const {nome} = bici;
+        
         nomeLeggero = nome;
     }
 });
 
+document.querySelector("h2").innerHTML = `la bicicletta più leggera è: ${nomeLeggero}, con un peso di: ${pesoLeggero}`;
 console.log(nomeLeggero)
